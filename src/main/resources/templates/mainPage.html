@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>DoggyFoodie</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="DF.css" rel="stylesheet">
+        <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>       
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22214-dog-face-icon.png" width="40" height="40" class="d-inline-block align-top" alt="">	  
+                    DooggyFoodie
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>     
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/" th:unless="${name != 'Guest'}">Logowanie użytkownika</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/adminLogin" th:unless="${name != 'Guest'}">Logowanie administratora</a>
+                        </li>                   
+                        <li class="nav-item">
+                            <a class="nav-link" href="/adminPanel" th:unless="${isadmin == 'No'}">Panel adminitratora</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/userPanel" th:unless="${isadmin == 'Yes'}">Panel użytkownika</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout" th:unless="${name == 'Guest'}">Wyloguj</a>
+                        </li>               
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <header class="jumbotron my-4" >
+                    <h1 class="display-3">DoggyFoodie - strona główna</h1>
+                    <p class="lead">Najlepsza strona to rozmawiania, oceniania i dzielenia się opiniami na temat jedzenia dla psów.</p>
+		</header>
+            </div>
+	</div>	
+        <!-- Page Features -->
+        <div class="container text-center">
+            <p th:text="'Sesja dla ' + ${name}" />
+        </div>    
+        <div class="row text-center">
+        </div>
+     
+        <!-- Footer -->
+        <footer class="py-3 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">DoggyFoodie.pl</p>
+            </div>
+          <!-- /.container -->
+        </footer>
+    </body>
+</html>

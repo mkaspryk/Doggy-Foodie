@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>DoggyFoodie</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="DF.css" rel="stylesheet">
+        <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> 
+        <script>
+            $(document).ready(function() {
+            setInterval( function() {
+            var hours = new Date().getHours();
+            $(".hours").html(( hours < 10 ? "0" : "" ) + hours);
+            }, 1000);
+            setInterval( function() {
+            var minutes = new Date().getMinutes();
+            $(".min").html(( minutes < 10 ? "0" : "" ) + minutes);
+            },1000);
+            setInterval( function() {
+            var seconds = new Date().getSeconds();
+            $(".sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+            },1000);
+            });
+	</script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1 >Panel Użytkownika</h1>
+            <div class="row">
+  		<div id="col1" class="col-sm-6">
+                    <h3 style = "text-align: center;"> Panel opcji </h3><br>
+                    <a href="/addPost"><button type="button" class="btn btn-warning btn-block"> Dodaj post </button></a><br>
+                    <a href="/checkProfile"><button type="button" class="btn btn-danger btn-block"> Zobacz profil </button></a><br>
+                    <a href="/editPost"><button type="button" class="btn btn-primary btn-block"> Edytuj post </button></a><br>
+                    <a href="/changePassword"><button type="button" class="btn btn-success btn-block"> Zmień hasło </button></a><br>
+                    <a href="/deleteAccount"><button type="button" class="btn btn-secondary btn-block"> Usuń konto </button></a><br>
+		</div>
+		<div id="col2" class="col-sm-6" style = "text-align: center;">
+                    <h3 th:text="'Witaj ponownie ' + ${name}" /><br>
+                    <div class="col-md-12">
+			<div class="card bg-light">
+                            <h3 class="card-title text-center">
+                            <div class="d-flex flex-wrap justify-content-center mt-2">
+                                <a><span class="badge hours"></span></a> :
+				<a><span class="badge min"></span></a> :
+				<a><span class="badge sec"></span></a>
+                            </div>
+                            </h3>
+                        </div>
+                    </div>   
+                    <br><a href="/mainPage"><button type="button" class="btn btn-primary btn-block"> Powrót do strony głównej </button></a><br>
+		</div>              
+            </div>           
+	</div>
+        <!-- Footer -->
+        <footer class="py-3 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white"> DoggyFoodie.pl </p>
+            </div>
+        <!-- /.container -->
+        </footer>
+    </body>
+</html>
